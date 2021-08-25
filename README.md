@@ -176,8 +176,8 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
 
   ```
   java version "1.8.0_301"
-Java(TM) SE Runtime Environment (build 1.8.0_301-b09)
-Java HotSpot(TM) 64-Bit Server VM GraalVM EE 21.2.0.1 (build 25.301-b09-jvmci-21.2-b08, mixed mode)
+  Java(TM) SE Runtime Environment (build 1.8.0_301-b09)
+  Java HotSpot(TM) 64-Bit Server VM GraalVM EE 21.2.0.1 (build 25.301-b09-jvmci-21.2-b08, mixed mode)
   ```
 
   Verify GraalVM JavaScript version

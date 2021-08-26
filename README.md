@@ -15,8 +15,8 @@ Table of Contents:
 * **[Exercise 4: SpringBoot](#exercise-4-springboot)**
    * [Exercise 4.1: Clone the sample SpringBoot Application](#exercise-41-clone-the-sample-springboot-application)
    * [Exercise 4.2: Compile and run the application using GraalVM Native Image](#exercise-42-compile-and-run-the-application-using-graalvm-native-image)
-   * [Exercise 4.3: Creating Docker Image](#exercise-41-clone-the-sample-springboot-application)
-   * [Exercise 4.4: Deploy it to Kubernetes cluster](#exercise-42-compile-and-run-the-application-using-graalvm-native-image)
+   * [Exercise 4.3: Creating Docker Image](#exercise-43-creating-docker-image)
+   * [Exercise 4.4: Deploy it to Kubernetes cluster](#exercise-44-deploy-it-to-kubernetes-cluster)
 
 
 # Exercise 1: Requirements
@@ -1242,6 +1242,7 @@ Open http://localhost:3000/ in your browser to see the result.
 
 That's the third thing we can do with GraalVM which is to run programs written in multiple programming languages. With this Polyglot capability in GraalVM, you can use whichever language you think is best to solve your problem as well as whichever library you need, no matter which language it came from.
 
+
 # Exercise 3: Microservices
 
 Creating your first Micronaut GraalVM application
@@ -1550,6 +1551,7 @@ Finally, stop the docker container:
 In this exercise 4, we will explore Spring Boot example applications, run it in GraalVM as JIT then compile it to AOT via Native Image.
 
 We are going to use Spring Boot PetClinic JPA that I forked and modified from [Spring Native Project](https://github.com/spring-projects-experimental/spring-native.git)
+
 
 ## Exercise 4.1: Clone my Spring Boot application
 
@@ -1975,6 +1977,7 @@ As you can see our `petclinic-jpa` application is installed inside `/` folder.
 
 Next we are going to deploy our container image to Kubernetes cluster.
 
+
 ## Exercise 4.4: Deploy it to Kubernetes cluster
 
 For this workshop I am using Kubernetes v1.19.1. Other Kubernetes versions might also be supported, please refer to Kubernetes documentation.
@@ -2312,6 +2315,7 @@ You can open your web browser and go to `http://localhost:30941/`
 ![petclinic-on-container-2](images/petclinic-on-container-port-30941-2.png)
 
 Congratulations! You have deployed your Native Image application in a container and then push it to local Container Registry, and then eventually deployed it on Kubernetes cluster.
+
 
 # Conclusions
 

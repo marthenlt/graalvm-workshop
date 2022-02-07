@@ -36,7 +36,7 @@ In order to get yourself ready for this workshop, you need to prepare your machi
 
 There are a lot of different parts to GraalVM, so while you may have heard of it, there are almost certainly things that it can do that you don't know about yet. In this workshop we'll go through some of the diverse features of GraalVM and show you what they can do for you.
 
-In this workshop we will be using GraalVM Enterprise Edition 21.2.0.1 for JDK 8 which can be downloaded from [OTN - Oracle Technology Network](https://www.oracle.com/downloads/graalvm-downloads.html)
+In this workshop we will be using GraalVM Enterprise Edition 22.0.0.2 for JDK 11 which can be downloaded from [OTN - Oracle Technology Network](https://www.oracle.com/downloads/graalvm-downloads.html)
 
 #### **_Important_** :
 
@@ -44,17 +44,13 @@ Everytime you see red computer icon ![user input](images/userinput.png) it means
 
 ## Exercise 2.1: Setup GraalVM Enterprise Edition
 
-Below are the steps to setup **GraalVM Enterprise Edition 21.2.0.1 for JDK 8** which is the latest GraalVM version at the time I wrote this workshop materials.
+Below are the steps to setup **GraalVM Enterprise Edition 22.0.0.2 for JDK 11** which is the latest GraalVM version at the time I wrote this workshop materials.
 
-* a) In order to get started with GraalVM Enterprise Edition, you will need to download it from [OTN - Oracle Technology Network](https://www.oracle.com/downloads/graalvm-downloads.html), make sure to choose "GraalVM Enterprise Edition 20 Current Release" tab as seen from below picture.
+* a) In order to get started with GraalVM Enterprise Edition, you will need to download it from [OTN - Oracle Technology Network](https://www.oracle.com/downloads/graalvm-downloads.html).
 
-  ![Download Picture 1](images/download-1.png)
-
-* b) Select Release Version 21.2.0.1, Java Version 8, and your OS (operating system) type.
+* b) Select Release Version 22.0.0.2, Java Version 11, and your OS (operating system) type.
 If you are using MacOS (like I do), you can choose macOS for the OS. Another supported OS is Windows and Linux.
 For this workshop we are only use either macOS or Linux. Windows has lesser features right now, therefore we don't use it now.
-
-  ![Download Picture 2](images/download-2.png)
 
 * c) Once you selected the OS, you can download 3 GraalVM components from OTN.
 
@@ -82,35 +78,35 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
 
     ![user input](images/userinput.png)
     >```sh
-    >tar -zxf graalvm-ee-java8-darwin-amd64-21.2.0.1.tar.gz
+    >tar -zxf graalvm-ee-java11-darwin-amd64-22.0.0.2.tar.gz
     >```
 
   * On Linux
 
      ![user input](images/userinput.png)
      >```sh
-     >tar -zxf graalvm-ee-java8-linux-amd64-21.2.0.1.tar.gz
+     >tar -zxf graalvm-ee-java11-linux-amd64-22.0.0.2.tar.gz
      >```
 
-* e) It will create a new directory named "graalvm-ee-java8-21.2.0.1". Move it to any path that you want for example for MacOS I used to put it under ```/Library/Java/JavaVirtualMachines/```, or on Linux you can put it under ```/opt/```. This is will become your GraalVM installation directory.
+* e) It will create a new directory named "graalvm-ee-java11-22.0.0.2". Move it to any path that you want for example for MacOS I used to put it under ```/Library/Java/JavaVirtualMachines/```, or on Linux you can put it under ```/opt/```. This is will become your GraalVM installation directory.
 
   * On MacOS
 
     ![user input](images/userinput.png)
     >```sh
-    >sudo mv graalvm-ee-java8-21.2.0.1 /Library/Java/JavaVirtualMachines/.
+    >sudo mv graalvm-ee-java11-22.0.0.2 /Library/Java/JavaVirtualMachines/.
     >```
 
-    So, your GraalVM installation directory on MacOS is ```/Library/Java/JavaVirtualMachines/graalvm-ee-java8-21.2.0.1/Contents/Home```
+    So, your GraalVM installation directory on MacOS is ```/Library/Java/JavaVirtualMachines/graalvm-ee-java11-22.0.0.2/Contents/Home```
 
   * On Linux
 
      ![user input](images/userinput.png)
      >```sh
-     >sudo mv graalvm-ee-java8-21.2.0.1 /opt/.
+     >sudo mv graalvm-ee-java11-22.0.0.2 /opt/.
      >```
 
-     And then your GraalVM installation directory on Linux is ```/opt/graalvm-ee-java8-21.2.0.1```
+     And then your GraalVM installation directory on Linux is ```/opt/graalvm-ee-java11-22.0.0.2```
 
 * f) Modify your terminal shell accordingly. Open your terminal and based on your shell type bash/zsh do the following.
 
@@ -131,7 +127,7 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
     and add the following to ```~/.zshrc``` or ```~/.bashrc``` files:
 
     >```sh
-    >export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ee-java8-21.2.0.1/Contents/Home
+    >export GRAALVM_HOME=/Library/Java/JavaVirtualMachines/graalvm-ee-java11-22.0.0.2/Contents/Home
     >export PATH=$PATH:$GRAALVM_HOME/bin
     >```
 
@@ -155,7 +151,7 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
 
     ![user input](images/userinput.png)
     >```sh
-    >export GRAALVM_HOME=/opt/graalvm-ee-java8-21.2.0.1
+    >export GRAALVM_HOME=/opt/graalvm-ee-java11-22.0.0.2
     >export PATH=$PATH:$GRAALVM_HOME/bin
     >```
 
@@ -175,9 +171,10 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
   Should output:
 
   ```
-  java version "1.8.0_301"
-  Java(TM) SE Runtime Environment (build 1.8.0_301-b09)
-  Java HotSpot(TM) 64-Bit Server VM GraalVM EE 21.2.0.1 (build 25.301-b09-jvmci-21.2-b08, mixed mode)
+  java version "11.0.14" 2022-01-18 LTS
+  Java(TM) SE Runtime Environment GraalVM EE 22.0.0.2 (build 11.0.14+8-LTS-jvmci-22.0-b05)
+  Java HotSpot(TM) 64-Bit Server VM GraalVM EE 22.0.0.2 (build 11.0.14+8-LTS-jvmci-22.0-b05, mixed mode, sharing)
+
   ```
 
   Verify GraalVM JavaScript version
@@ -190,7 +187,7 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
   Should output:
 
   ```
-  GraalVM JavaScript (GraalVM EE Native 21.2.0.1)
+  GraalVM JavaScript (GraalVM EE Native 22.0.0.2)
   ```
 
 * i) The final step of the setup is to install Native Image, LLVM toolchain, and R using GraalVM Utility ```gu```
@@ -201,9 +198,9 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
 
     ![user input](images/userinput.png)
     >```sh
-    >gu install -L ~/Downloads/native-image-installable-svm-svmee-java8-darwin-amd64-21.2.0.1.jar
-    >gu install -L ~/Downloads/llvm-toolchain-installable-java8-darwin-amd64-21.2.0.1.jar
-    >gu install -L ~/Downloads/nodejs-installable-svm-svmee-java8-darwin-amd64-21.2.0.1.jar
+    >gu install -L ~/Downloads/native-image-installable-svm-svmee-java11-darwin-amd64-22.0.0.2.jar
+    >gu install -L ~/Downloads/llvm-toolchain-installable-java11-darwin-amd64-22.0.0.2.jar
+    >gu install -L ~/Downloads/nodejs-installable-svm-svmee-java11-darwin-amd64-22.0.0.2.jar
     >gu install R
     >```
 
@@ -216,14 +213,14 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
 
     ![user input](images/userinput.png)
     >```sh
-    >/opt/graalvm-ee-java8-20.1.0/jre/languages/R/bin/configure_fastr
+    >/opt/graalvm-ee-java11-22.0.0.2/jre/languages/R/bin/configure_fastr
     >```
 
     On MacOS
 
     ![user input](images/userinput.png)
     >```sh
-    >/Library/Java/JavaVirtualMachines/graalvm-ee-java8-20.1.0/Contents/home/jre/languages/R/bin/configure_fastr
+    >/Library/Java/JavaVirtualMachines/graalvm-ee-java11-22.0.0.2/Contents/Home/languages/R/bin/configure_fastr
     >```
 
     The output is something like the following:
@@ -238,8 +235,8 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
     On Debian based systems: apt-get install build-essential gfortran libxml2 libc++-dev
     On Oracle Linux: yum groupinstall 'Development Tools' && yum install gcc-gfortran
 
-    Default personal library directory (/home/mluther/R/x86_64-pc-linux-gnu-library/fastr-20.1.0-3.6) does exist. Do you wish to create it? (Yy/Nn) y
-    Creating personal library directory: /home/mluther/R/x86_64-pc-linux-gnu-library/fastr-20.1.0-3.6
+    Default personal library directory (/home/mluther/R/x86_64-pc-linux-gnu-library/fastr-22.0.0.2-4.0) does exist. Do you wish to create it? (Yy/Nn) y
+    Creating personal library directory: /home/mluther/R/x86_64-pc-linux-gnu-library/fastr-22.0.0.2-4.0
     DONE
 
     ```
@@ -252,11 +249,11 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
     Note: if you intend to install R packages you may need additional dependencies.
     The most common dependency is GFortran, which must be of version 8.3.0 or later.
     See https://gcc.gnu.org/wiki/GFortranBinaries.
-    If the 'gfortran' binary is not on the system path, you need to configure the full path to it in /Library/Java/JavaVirtualMachines/graalvm-ee-java8-21.2.0.1/Contents/Home/jre/languages/R/etc/Makeconf (variable FC)
+    If the 'gfortran' binary is not on the system path, you need to configure the full path to it in /Library/Java/JavaVirtualMachines/graalvm-ee-java11-22.0.0.2/Contents/Home/languages/R/etc/Makeconf (variable FC)
 
-    Default personal library directory (/Users/mluther/R/x86_64-apple-darwin-library/fastr-21.2.0-4.0) does not exist.
-    Do you wish to create it now? (Yy/Nn) y
-    Creating personal library directory: /Users/mluther/R/x86_64-apple-darwin-library/fastr-21.2.0-4.0
+    Default personal library directory (/Users/mluther/R/x86_64-apple-darwin-library/fastr-22.0.0.2-4.0) does not exist.
+    Do you wish to create it now? (Yy/Nn) Y
+    Creating personal library directory: /Users/mluther/R/x86_64-apple-darwin-library/fastr-22.0.0.2-4.0
     DONE
     ```
 
@@ -303,24 +300,25 @@ Verify the installation of NodeJS is successfull by typing the following command
 It should gives you an output something like the following:
 
 ```
-GraalVM EE Native Polyglot Engine Version 21.2.0.1
-Java Version 1.8.0_301
-Java VM Version GraalVM 21.2.0.1 Java 8 EE
-GraalVM Home /Library/Java/JavaVirtualMachines/graalvm-ee-java8-21.2.0.1/Contents/Home
+GraalVM EE Native Polyglot Engine Version 22.0.0.2
+Java Version 11.0.14
+Java VM Version GraalVM 22.0.0.2 Java 11 EE
+GraalVM Home /Library/Java/JavaVirtualMachines/graalvm-ee-java11-22.0.0.2/Contents/Home
   Installed Languages:
-    JavaScript version 21.2.0.1
+    JavaScript version 22.0.0.2
   Installed Tools:
     Agent Script            version 1.1
     Code Coverage           version 0.1.0
-    CPU Sampler             version 0.4.0
+    CPU Sampler             version 0.5.0
     CPU Tracer              version 0.3.0
     Debug Protocol Server   version 0.1
-    heap                    version 21.2.0.1
+    heap                    version 22.0.0.2
     Heap Allocation Monitor version 0.1.0
     Insight                 version 1.1
     Chrome Inspector        version 0.1
     Language Server         version 0.1
     Memory Tracer           version 0.2
+    Sandbox                 version 22.0.0.2
 ```
 
 Check GraalVM Utility ```gu``` version
@@ -333,7 +331,7 @@ Check GraalVM Utility ```gu``` version
 Should output:
 
 ```
-GraalVM Updater 21.2.0.1
+GraalVM Updater 22.0.0.2
 ```
 
 Finally make sure all component are listed inside ```gu``` by running the following command
@@ -348,12 +346,15 @@ Should output:
 ```
 ComponentId              Version             Component name                Stability                     Origin
 ---------------------------------------------------------------------------------------------------------------------------------
-graalvm                  21.2.0.1            GraalVM Core                  -
-R                        21.2.0              FastR                         Experimental                  github.com
-js                       21.2.0.1            Graal.js                      Supported
-llvm-toolchain           21.2.0.1            LLVM.org toolchain            Supported
-native-image             21.2.0.1            Native Image                  Early adopter
-nodejs                   21.2.0.1            Graal.nodejs                  Supported
+graalvm                  22.0.0.2            GraalVM Core                  Supported
+R                        22.0.0.2            FastR                         Experimental                  github.com
+espresso                 22.0.0.2            Java on Truffle               Supported
+js                       22.0.0.2            Graal.js                      Supported
+llvm-toolchain           22.0.0.2            LLVM.org toolchain            Supported                     github.com
+native-image             22.0.0.2            Native Image                  Early adopter
+nodejs                   22.0.0.2            Graal.nodejs                  Supported
+ruby                     22.0.0.2            TruffleRuby                   Experimental
+wasm                     22.0.0.2            GraalWasm                     Experimental
 ```    
 
 
@@ -639,28 +640,54 @@ Execute below command to create a TopTen's native binary executable:
 
 ![user input](images/userinput.png)
 >```sh
-> native-image --no-server --no-fallback TopTen
+> native-image --no-fallback TopTen
 >```
 
 The output is something like the following:
 
 ```
-[topten:37970]    classlist:   1,801.57 ms
-[topten:37970]        (cap):   1,289.45 ms
-[topten:37970]        setup:   3,087.67 ms
-[topten:37970]   (typeflow):   6,704.85 ms
-[topten:37970]    (objects):   6,448.88 ms
-[topten:37970]   (features):     820.90 ms
-[topten:37970]     analysis:  14,271.88 ms
-[topten:37970]     (clinit):     257.25 ms
-[topten:37970]     universe:     766.11 ms
-[topten:37970]      (parse):   1,365.29 ms
-[topten:37970]     (inline):   3,829.55 ms
-[topten:37970]    (compile):  34,674.51 ms
-[topten:37970]      compile:  41,412.71 ms
-[topten:37970]        image:   2,741.41 ms
-[topten:37970]        write:     619.13 ms
-[topten:37970]      [total]:  64,891.52 ms
+========================================================================================================================
+GraalVM Native Image: Generating 'topten'...
+========================================================================================================================
+[1/7] Initializing...                                                                                    (5.1s @ 0.08GB)
+ Version info: 'GraalVM 22.0.0.2 Java 11 EE'
+[2/7] Performing analysis...  [*****]                                                                    (6.4s @ 0.88GB)
+   2,791 (81.90%) of  3,408 classes reachable
+   3,445 (60.91%) of  5,656 fields reachable
+  12,583 (71.94%) of 17,491 methods reachable
+      32 classes,     0 fields, and   140 methods registered for reflection
+      57 classes,    59 fields, and    51 methods registered for JNI access
+[3/7] Building universe...                                                                               (0.6s @ 1.06GB)
+[4/7] Parsing methods...      [*]                                                                        (0.6s @ 0.52GB)
+[5/7] Inlining methods...     [****]                                                                     (0.8s @ 1.21GB)
+[6/7] Compiling methods...    [****]                                                                    (12.7s @ 0.80GB)
+[7/7] Creating image...                                                                                  (1.7s @ 1.20GB)
+   5.93MB (46.49%) for code area:    6,630 compilation units
+   6.06MB (47.46%) for image heap:   1,683 classes and 96,102 objects
+ 790.91KB ( 6.05%) for other data
+  12.77MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 packages in code area:                               Top 10 object types in image heap:
+ 987.31KB java.util                                            1.85MB byte[] for general heap data
+ 471.23KB java.lang                                          588.54KB java.lang.String
+ 400.95KB java.text                                          505.74KB byte[] for java.lang.String
+ 351.81KB java.util.stream                                   442.23KB java.lang.Class
+ 294.81KB java.util.concurrent                               269.38KB java.util.HashMap$Node
+ 257.37KB java.util.regex                                    195.84KB java.util.concurrent.ConcurrentHashMap$Node
+ 205.81KB com.oracle.svm.jni                                 137.28KB char[]
+ 185.81KB java.util.logging                                  131.57KB java.util.HashMap$Node[]
+ 151.95KB java.io                                             83.95KB sun.util.locale.LocaleObjectCache$CacheEntry
+ 151.44KB java.math                                           76.24KB byte[] for method metadata
+      ... 122 additional packages                                 ... 755 additional object types
+                                           (use GraalVM Dashboard to see all)
+------------------------------------------------------------------------------------------------------------------------
+                        0.8s (2.7% of total time) in 20 GCs | Peak RSS: 4.92GB | CPU load: 8.48
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/native-image-workshop/topten (executable)
+ /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/native-image-workshop/topten.build_artifacts.txt
+========================================================================================================================
+Finished generating 'topten' in 29.3s.
 ```
 
 This command produces a native executable called `topten`. This executable isn't
@@ -669,6 +696,36 @@ JVM in any way. `native-image` really does compile your Java code, and any Java
 libraries you use, all the way down to simple machine code. For runtime
 components like the garbage collector we are running our own new VM called the
 SubstrateVM, which like GraalVM is also written in Java.
+
+If you are curious (just like me) to know the breakdown of the code size per method in the final executable binary as well as in the image heap, you can re-execute the above command by adding `-H:+DashboardHeap` and `-H:+DashboardCode` options, as seen from below command:
+
+```
+native-image -H:DashboardDump=dashboard -H:+DashboardAll --no-fallback TopTen
+```
+
+It will produce BGV dump file called `dashboard.bgv` and print additional output in the terminal :
+
+```
+# Printing Dashboard Code-Breakdown BGV dump to: /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/native-image-workshop/dashboard.bgv
+[7/7] Creating image...                                                                                  (1.7s @ 0.68GB)
+# Printing Dashboard Heap-Breakdown BGV dump to: /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/native-image-workshop/dashboard.bgv
+   5.93MB (46.50%) for code area:    6,630 compilation units
+   6.06MB (47.48%) for image heap:   1,683 classes and 96,040 objects
+ 787.89KB ( 6.03%) for other data
+  12.76MB in total
+```
+
+Now you can view it using GraalVM Dashboard at [https://www.graalvm.org/dashboard/](https://www.graalvm.org/dashboard/) by uploading the `dashboard.bgv` file.
+
+![user input](images/dashboard-1.png)
+
+![user input](images/dashboard-2.png)
+
+![user input](images/dashboard-3.png)
+
+![user input](images/dashboard-4.png)
+
+![user input](images/dashboard-5.png)
 
 If we look at the libraries which `topten` uses you can see they are only
 standard system libraries. We could also move just this one file to a system
@@ -692,6 +749,17 @@ MB.
 	libc.so.6 => /lib64/libc.so.6 (0x00007f6bd9983000)
 	/lib64/ld-linux-x86-64.so.2 (0x00007f6bdaac8000)
 	libfreebl3.so => /lib64/libfreebl3.so (0x00007f6bd9780000)
+```
+
+And here's the output from Mac:
+
+```
+topten:
+	/usr/lib/libz.1.dylib (compatibility version 1.0.0, current version 1.2.11)
+	/usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1281.100.1)
+	/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation (compatibility version 300.0.0, current version 1675.129.0)
+	/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation (compatibility version 150.0.0, current version 1675.129.0)
+	/usr/lib/libobjc.A.dylib (compatibility version 1.0.0, current version 228.0.0)
 ```
 
 Check the file size of the newly generated file
@@ -730,7 +798,6 @@ suscipit = 2
 	Average stack size (kbytes): 0
 	Average total size (kbytes): 0
 	Maximum resident set size (kbytes): 6192
-...
 ```
 
 As you can see from the above, that GraalVM AOT via Native Image requires only 6,1 MB memory shown by Maximum resident set size (kbytes) indicator.
@@ -859,7 +926,7 @@ And then create the native binary executable using below command:
 
 ![user input](images/userinput.png)
 >```sh
-> native-image --no-server --no-fallback Streams
+> native-image --no-fallback Streams
 >```
 
 Run the native binary executable:
@@ -906,7 +973,7 @@ There are 2 ways of creating a PGO file:
 * Via `native-image --pgo-instrument`
 
 
-##### Generating PGO file via `java -Dgraal.PGOInstrument`
+### Generating PGO file via `java -Dgraal.PGOInstrument`
 
 In this exercise we will create a PGO file named ```streams.iprof``` via `java -Dgraal.PGOInstrument`, we can do that by executing below command:
 
@@ -917,7 +984,7 @@ Older GraalVM version use the following command:
 > java -Dgraal.PGOInstrument=streams.iprof Streams 100000 200
 >```
 
-Newer GraalVM version such as GraalVM Enterprise Edition 21.2.0.1 that we are using now, you may use the following command:
+Newer GraalVM version such as GraalVM Enterprise Edition 22.0.0.2 that we are using now, you may use the following command:
 
 ![user input](images/userinput.png)
 >```sh
@@ -1001,7 +1068,7 @@ Next we can then re-create the topten binary executable with our PGO `streams.ip
 
 ![user input](images/userinput.png)
 >```sh
-> native-image --no-server --no-fallback --pgo=streams.iprof Streams
+> native-image --no-fallback --pgo=streams.iprof Streams
 >```
 
 Then we execute the same benchmarking again..
@@ -1040,7 +1107,7 @@ TOTAL time: 548
 The new benchmark (as a result of PGO) shows a better throughput of 548 milliseconds compare to 4686 miliseconds which is showing more than 88% better throughput.
 
 
-##### Generating PGO file via `native-image --pgo-instrument`
+### Generating PGO file via `native-image --pgo-instrument`
 
 Another way of creating a PGO file is using `native-image --pgo-instrument`.
 
@@ -1138,12 +1205,12 @@ languages. For example we can install a Node.js module:
 >```
 
 ```
-+ color@4.0.1
-added 6 packages from 6 contributors and audited 6 packages in 7.099s
++ color@4.2.0
+added 6 packages from 6 contributors and audited 6 packages in 1.781s
+found 0 vulnerabilities
 ```
 
-We can write a little program using this module to convert an RGB HTML color to
-HSL (Hue, Saturation and Lightness):
+We can write a little NodeJS program, name `color.js` using this module to convert an RGB HTML color to HSL (Hue, Saturation and Lightness):
 
 ```javascript
 var Color = require('color');
@@ -1192,8 +1259,8 @@ First, let's install the express npm package:
 >```
 
 ```
-+ express@4.17.1
-added 50 packages from 37 contributors and audited 61 packages in 12.755s
++ express@4.17.2
+added 50 packages from 37 contributors and audited 61 packages in 6.646s
 ```
 
 Next, let's create a simple NodeJS file `polyglot.js` using below code, you can copy and paste it in your IDE, and then run it.
@@ -1294,13 +1361,14 @@ Once finished you can run the application using a standard `java -jar`
 The output is something like this:
 
 ```
+ __  __ _                                  _
 |  \/  (_) ___ _ __ ___  _ __   __ _ _   _| |_
 | |\/| | |/ __| '__/ _ \| '_ \ / _` | | | | __|
 | |  | | | (__| | | (_) | | | | (_| | |_| | |_
 |_|  |_|_|\___|_|  \___/|_| |_|\__,_|\__,_|\__|
-  Micronaut (v3.0.0)
+  Micronaut (v3.3.0)
 
-15:23:33.964 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 1434ms. Server Running: http://localhost:8080
+19:24:34.299 [main] INFO  io.micronaut.runtime.Micronaut - Startup completed in 684ms. Server Running: http://localhost:8080
 ```
 
 You can access the RESTful web service by using either your web browser or `curl`.
@@ -1321,65 +1389,89 @@ To convert this application to Native Image executable binary, you can run the f
 
 ![user input](images/userinput.png)
 >```sh
-> ./gradlew nativeImage
+> ./gradlew nativeCompile
 >```
 
 The output is something like the following in my MacBook running MacOS BigSur.
 
 ```
-To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.2/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon.
 Daemon will be stopped at the end of the build
 
 > Task :compileJava
 Note: Creating bean classes for 2 type elements
 
-> Task :generateResourceConfigFile
-Generating /Users/mluther/workshop/micronaut/build/generated/resources/graalvm/resource-config.json
+> Task :generateResourcesConfigFile
+[native-image-plugin] Resources configuration written into /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/micronaut-creating-first-graal-app-gradle-java/build/native/generated/generateResourcesConfigFile/resource-config.json
 
-> Task :nativeImage
-[application:35449]    classlist:   3,521.53 ms,  2.01 GB
-[application:35449]        (cap):  10,909.58 ms,  2.01 GB
-[application:35449]        setup:  13,721.20 ms,  2.01 GB
-[application:35449]     (clinit):   1,127.36 ms,  5.40 GB
-[application:35449]   (typeflow):  17,159.14 ms,  5.40 GB
-[application:35449]    (objects):  20,877.65 ms,  5.40 GB
-[application:35449]   (features):   2,669.06 ms,  5.40 GB
-[application:35449]     analysis:  43,794.66 ms,  5.40 GB
-[application:35449]     universe:   2,843.25 ms,  5.40 GB
-[application:35449]      (parse):   6,227.91 ms,  5.87 GB
-[application:35449]     (inline):   3,284.80 ms,  6.02 GB
-[application:35449]    (compile):  66,968.02 ms,  6.10 GB
-[application:35449]      compile:  80,413.25 ms,  6.10 GB
-[application:35449]        image:   6,424.28 ms,  6.16 GB
-[application:35449]        write:   2,727.40 ms,  6.16 GB
-[application:35449]      [total]: 153,745.00 ms,  6.16 GB
-# Printing build artifacts to: /Users/mluther/workshop/micronaut/build/native-image/application.build_artifacts.txt
-Native Image written to: /Users/mluther/workshop/micronaut/native-image/application
+> Task :nativeCompile
+Toolchain detection is disabled, will use GraalVM from /Library/Java/JavaVirtualMachines/graalvm-ee-java11-22.0.0.2/Contents/Home/.
+[native-image-plugin] Using executable path: /Library/Java/JavaVirtualMachines/graalvm-ee-java11-22.0.0.2/Contents/Home/bin/native-image
+========================================================================================================================
+GraalVM Native Image: Generating 'micronautguide'...
+========================================================================================================================
+[1/7] Initializing...                                                                                    (7.6s @ 0.14GB)
+ Version info: 'GraalVM 22.0.0.2 Java 11 EE'
+ 2 user-provided feature(s)
+  - io.micronaut.buffer.netty.NettyFeature
+  - io.micronaut.http.netty.graal.HttpNettyFeature
+[2/7] Performing analysis...  [**************]                                                          (39.9s @ 3.43GB)
+  12,687 (90.44%) of 14,028 classes reachable
+  17,971 (62.47%) of 28,767 fields reachable
+  63,295 (61.31%) of 103,236 methods reachable
+     689 classes,   238 fields, and 1,652 methods registered for reflection
+      68 classes,    89 fields, and    55 methods registered for JNI access
+[3/7] Building universe...                                                                               (2.8s @ 1.81GB)
+[4/7] Parsing methods...      [*]                                                                        (1.5s @ 3.49GB)
+[5/7] Inlining methods...     [*****]                                                                    (4.0s @ 2.09GB)
+[6/7] Compiling methods...    [*******]                                                                 (51.0s @ 5.51GB)
+[7/7] Creating image...                                                                                  (6.0s @ 3.47GB)
+  37.08MB (58.26%) for code area:   38,743 compilation units
+  21.67MB (34.05%) for image heap:   8,990 classes and 343,833 objects
+   4.90MB ( 7.70%) for other data
+  63.64MB in total
+------------------------------------------------------------------------------------------------------------------------
+Top 10 packages in code area:                               Top 10 object types in image heap:
+   2.11MB sun.security.ssl                                     9.11MB byte[] for general heap data
+   1.52MB java.util                                            2.67MB java.lang.Class
+   1.50MB io.netty.buffer                                      1.88MB byte[] for java.lang.String
+   1.38MB com.oracle.svm.core.reflect                          1.70MB java.lang.String
+   1.10MB com.sun.crypto.provider                            440.18KB java.util.LinkedHashMap
+ 850.86KB java.util.concurrent                               407.70KB byte[] for method metadata
+ 788.22KB sun.security.x509                                  382.31KB java.util.HashMap$Node
+ 780.11KB java.lang                                          323.41KB int[]
+ 761.01KB io.netty.handler.codec.http2                       287.86KB com.oracle.svm.core.util.LazyFinalReference
+ 681.61KB reactor.core.publisher                             268.31KB java.util.concurrent.ConcurrentHashMap$Node
+      ... 481 additional packages                                 ... 2798 additional object types
+                                           (use GraalVM Dashboard to see all)
+------------------------------------------------------------------------------------------------------------------------
+                        9.4s (7.8% of total time) in 58 GCs | Peak RSS: 7.76GB | CPU load: 8.58
+------------------------------------------------------------------------------------------------------------------------
+Produced artifacts:
+ /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/micronaut-creating-first-graal-app-gradle-java/build/native/nativeCompile/micronautguide (executable)
+ /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/micronaut-creating-first-graal-app-gradle-java/build/native/nativeCompile/micronautguide.build_artifacts.txt
+========================================================================================================================
+Finished generating 'micronautguide' in 1m 58s.
+[native-image-plugin] Native Image written to: /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/micronaut-creating-first-graal-app-gradle-java/build/native/nativeCompile
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
-
-BUILD SUCCESSFUL in 2m 56s
-4 actionable tasks: 3 executed, 1 up-to-date
+BUILD SUCCESSFUL in 2m 12s
+6 actionable tasks: 6 executed
 ```
 
-The newly created native binary executable file called `application` will be located at `build/native-image` folder of current application working directory.
+The newly created native binary executable file called `micronautguide` will be located at `build/native/nativeCompile` folder of current application working directory.
 
 You can run it as per other native command line tools.
 
 ![user input](images/userinput.png)
 >```sh
-> cd native-image
-> ./application
+> cd build/native/nativeCompile
+> ./micronautguide
 >```
 
 
 ## Exercise 3.1: Creating native image inside Docker
 
-To build a Docker image of your Native Image, you can run below command:
+To build a Docker image of your Native Image, make sure you docker daemon has already running, you can then run below command:
 
 ![user input](images/userinput.png)
 >```sh
@@ -1423,94 +1515,87 @@ Here's the error output:
 Here's the output of running the above command from my MacOS machine. Do keep in mind that it might different from your machine.
 
 ```
-To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.2/userguide/gradle_daemon.html#sec:disabling_the_daemon.
+To honour the JVM settings for this build a single-use Daemon process will be forked. See https://docs.gradle.org/7.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon.
 Daemon will be stopped at the end of the build
 
 > Task :dockerfileNative
-Dockerfile written to: /Users/mluther/Downloads/delete/working/build/docker/DockerfileNative
+Dockerfile written to: /Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/micronaut-creating-first-graal-app-gradle-java/build/docker/native-main/DockerfileNative
 
 > Task :dockerBuildNative
-Building image using context '/Users/mluther/Downloads/delete/working/build/docker'.
-Using Dockerfile '/Users/mluther/Downloads/delete/working/build/docker/DockerfileNative'
+Building image using context '/Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/micronaut-creating-first-graal-app-gradle-java/build/docker/native-main'.
+Using Dockerfile '/Users/mluther/OracleDocs/Oracle Content/Marthen/Demo/exercise-delete/micronaut-creating-first-graal-app-gradle-java/build/docker/native-main/DockerfileNative'
 Using images 'micronautguide'.
-Step 1/11 : FROM ghcr.io/graalvm/graalvm-ce:java8-21.2.0 AS graalvm
- ---> b6b7306e9359
-Step 2/11 : RUN gu install native-image
- ---> Running in a07365728dfd
-Downloading: Component catalog from www.graalvm.org
-Processing Component: Native Image
-Downloading: Component native-image: Native Image  from github.com
-Installing new component: Native Image (org.graalvm.native-image, version 21.2.0)
-Refreshed alternative links in /usr/bin/
-Removing intermediate container a07365728dfd
- ---> c805317488a5
-Step 3/11 : WORKDIR /home/app
- ---> Running in 08031bb5d042
-Removing intermediate container 08031bb5d042
- ---> bd305ebf7494
-Step 4/11 : COPY layers/libs /home/app/libs
- ---> fee6b2790463
-Step 5/11 : COPY layers/resources /home/app/resources
- ---> 35b52fea9766
-Step 6/11 : COPY layers/application.jar /home/app/application.jar
- ---> 85f83053345f
-Step 7/11 : RUN native-image -H:Class=example.micronaut.Application -H:Name=application -H:ConfigurationFileDirectories=/Users/mluther/Downloads/delete/working/build/generated/resources/graalvm --no-fallback -cp /home/app/libs/*.jar:/home/app/resources:/home/app/application.jar
- ---> Running in 8ae304775731
-[application:28]    classlist:   3,160.59 ms,  2.25 GB
-[application:28]        (cap):     808.63 ms,  2.25 GB
-[application:28]        setup:   3,766.98 ms,  2.24 GB
-[application:28]     (clinit):   1,323.20 ms,  5.32 GB
-[application:28]   (typeflow):  24,108.50 ms,  5.32 GB
-[application:28]    (objects):  24,183.16 ms,  5.32 GB
-[application:28]   (features):   1,861.52 ms,  5.32 GB
-[application:28]     analysis:  53,501.87 ms,  5.32 GB
-[application:28]     universe:   3,698.04 ms,  5.32 GB
-[application:28]      (parse):   5,360.41 ms,  5.81 GB
-[application:28]     (inline):   3,475.99 ms,  5.93 GB
-[application:28]    (compile):  28,379.06 ms,  5.82 GB
-[application:28]      compile:  39,997.62 ms,  5.82 GB
-[application:28]        image:   6,894.05 ms,  5.86 GB
-[application:28]        write:     823.40 ms,  5.86 GB
-[application:28]      [total]: 112,234.44 ms,  5.86 GB
+Step 1/13 : FROM ghcr.io/graalvm/native-image:java11-21.3.0 AS graalvm
+ ---> b8c385acd31c
+Step 2/13 : WORKDIR /home/app
+ ---> Running in 9266b1ab9ab7
+Removing intermediate container 9266b1ab9ab7
+ ---> 155394709b45
+Step 3/13 : COPY layers/libs /home/app/libs
+ ---> d54990c277d4
+Step 4/13 : COPY layers/classes /home/app/classes
+ ---> eae68d215c55
+Step 5/13 : COPY layers/resources /home/app/resources
+ ---> b5d9ec33748f
+Step 6/13 : COPY layers/application.jar /home/app/application.jar
+ ---> 86d4e42baabc
+Step 7/13 : RUN mkdir /home/app/config-dirs
+ ---> Running in 9827de85b193
+Removing intermediate container 9827de85b193
+ ---> f246cca96120
+Step 8/13 : COPY config-dirs/generateResourcesConfigFile /home/app/config-dirs/generateResourcesConfigFile
+ ---> bf1dd0dc98c7
+Step 9/13 : RUN native-image -cp /home/app/libs/*.jar:/home/app/resources:/home/app/application.jar --no-fallback -H:Name=application -H:ConfigurationFileDirectories=/home/app/config-dirs/generateResourcesConfigFile -H:Class=example.micronaut.Application
+ ---> Running in a74b751beaa8
+[application:26]    classlist:   3,463.04 ms,  0.94 GB
+[application:26]        (cap):     665.56 ms,  0.94 GB
+[application:26]        setup:   2,999.96 ms,  0.94 GB
+[application:26]     (clinit):   1,223.69 ms,  5.05 GB
+[application:26]   (typeflow):   7,811.11 ms,  5.05 GB
+[application:26]    (objects):  35,101.06 ms,  5.05 GB
+[application:26]   (features):  12,022.77 ms,  5.05 GB
+[application:26]     analysis:  60,109.24 ms,  5.05 GB
+[application:26]     universe:   4,329.55 ms,  5.05 GB
+[application:26]      (parse):   1,995.72 ms,  5.05 GB
+[application:26]     (inline):   5,769.93 ms,  5.75 GB
+[application:26]    (compile):  26,957.72 ms,  6.00 GB
+[application:26]      compile:  38,210.88 ms,  6.00 GB
+[application:26]        image:   5,236.84 ms,  6.00 GB
+[application:26]        write:     658.84 ms,  6.00 GB
+[application:26]      [total]: 115,459.17 ms,  6.00 GB
 # Printing build artifacts to: /home/app/application.build_artifacts.txt
-Removing intermediate container 8ae304775731
- ---> 7329fcb8eeea
-Step 8/11 : FROM frolvlad/alpine-glibc:alpine-3.12
+Removing intermediate container a74b751beaa8
+ ---> e8a5e8eab708
+Step 10/13 : FROM frolvlad/alpine-glibc:alpine-3.12
  ---> 39c4d33bd807
-Step 9/11 : RUN apk update && apk add libstdc++
- ---> Running in 5e1b0c519d75
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.12/main/x86_64/APKINDEX.tar.gz
-fetch http://dl-cdn.alpinelinux.org/alpine/v3.12/community/x86_64/APKINDEX.tar.gz
-v3.12.7-150-g1a919bbc21 [http://dl-cdn.alpinelinux.org/alpine/v3.12/main]
-v3.12.7-147-gbbfde1f9e9 [http://dl-cdn.alpinelinux.org/alpine/v3.12/community]
-OK: 12757 distinct packages available
-(1/1) Installing libstdc++ (9.3.0-r2)
-Executing glibc-bin-2.32-r0.trigger
-/usr/glibc-compat/sbin/ldconfig: /usr/glibc-compat/lib/ld-linux-x86-64.so.2 is not a symbolic link
-
-OK: 19 MiB in 18 packages
-Removing intermediate container 5e1b0c519d75
+Step 11/13 : RUN apk update && apk add libstdc++
+ ---> Using cache
  ---> 33c06101e4f9
-Step 10/11 : COPY --from=graalvm /home/app/application /app/application
- ---> f7e8a68dbd5b
-Step 11/11 : ENTRYPOINT ["/app/application"]
- ---> Running in e3298f0bbef5
-Removing intermediate container e3298f0bbef5
- ---> 551f23d2b735
-Successfully built 551f23d2b735
+Step 12/13 : COPY --from=graalvm /home/app/application /app/application
+ ---> 5203dddf4fdc
+Step 13/13 : ENTRYPOINT ["/app/application"]
+ ---> Running in 129b230a35b3
+Removing intermediate container 129b230a35b3
+ ---> 6c59e16284b2
+Successfully built 6c59e16284b2
 Successfully tagged micronautguide:latest
-Created image with ID '551f23d2b735'.
+Created image with ID '6c59e16284b2'.
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
-
-You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
-
-See https://docs.gradle.org/7.2/userguide/command_line_interface.html#sec:command_line_warnings
-
-BUILD SUCCESSFUL in 4m 20s
-6 actionable tasks: 2 executed, 4 up-to-date
-
+BUILD SUCCESSFUL in 3m 15s
+9 actionable tasks: 5 executed, 4 up-to-date
 ```
+
+You can then run `docker images` command to check the newly created docker image.
+
+![user input](images/userinput.png)
+>```sh
+> docker images
+> REPOSITORY                                                               TAG                                                     IMAGE ID       CREATED         SIZE
+> micronautguide                                                           latest                                                  6c59e16284b2   2 minutes ago   75.3MB
+> ghcr.io/graalvm/native-image                                             java11-21.3.0                                           b8c385acd31c   2 months ago    832MB
+> mysql                                                                    latest                                                  5a4e492065c7   5 months ago    514MB
+> paketobuildpacks/run                                                     tiny-cnb                                                633bcda21ad9   5 months ago    17.4MB
+>```
 
 It will create an image with `micronautguide:latest` tag. To execute it, run the following command:
 
@@ -1531,12 +1616,12 @@ From another terminal, you can run a few cURL requests to test the application:
 > time curl localhost:3000/conferences/random
 >```
 
-```
-{"name":"Greach"}
-real    0m0.016s
-user    0m0.005s
-sys     0m0.004s
-```
+>```sh
+> {"name":"Greach"}
+> real    0m0.016s
+> user    0m0.005s
+> sys     0m0.004s
+>```
 
 Finally, stop the docker container:
 
@@ -1578,7 +1663,7 @@ In my machine it shows below output:
 ```
 Apache Maven 3.6.3 (cecedd343002696d0abb50b32b541b8a6ba2883f)
 Maven home: /Users/mluther/custom-libs/apache-maven-3.6.3
-Java version: 1.8.0_301, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/graalvm-ee-java8-21.2.0.1/Contents/Home/jre
+Java version: 1.8.0_301, vendor: Oracle Corporation, runtime: /Library/Java/JavaVirtualMachines/graalvm-ee-java8-20.3.2/Contents/Home/jre
 Default locale: en_SG, platform encoding: UTF-8
 OS name: "mac os x", version: "10.16", arch: "x86_64", family: "mac"
 ```
@@ -1699,15 +1784,15 @@ The application starts in 9.324 seconds.
 
 You can then open your web browser and open `http://localhost:8080`
 
-![polyglot.js](images/petclinic-ui.png)
+![petclinic-ui](images/petclinic-ui.png)
 
 Feel free to play around with the application for a while.
 
 Now let us compile it into native executable binary via GraalVM Native Image.
 
-I have prepare a shell script called `compile.sh` to do this. However due to same changes in Native Image Reflection method signature in  `com.oracle.svm.hosted.config.ReflectionRegistryAdapter.registerField` we need to use older version of GraalVM Enterprise Edition version 20.3.3 and re-install Native Image 20.3.3 again.
+I have prepare a shell script called `compile.sh` to do this. However due to same changes in Native Image Reflection method signature in  `com.oracle.svm.hosted.config.ReflectionRegistryAdapter.registerField` we need to use older version of GraalVM Enterprise Edition version 20.3.3 and re-install Native Image 20.3.2 again.
 
-The issue that am getting with GraalVM 21.2.0.1 is
+The issue that am getting with GraalVM 21.x.x and above is :
 
 ```
 Fatal error:java.lang.NoSuchMethodError: com.oracle.svm.hosted.config.ReflectionRegistryAdapter.registerField(Ljava/lang/Class;Ljava/lang/String;ZZ)V
@@ -1745,9 +1830,8 @@ public void registerField(Class<?> type,
 In [GraalVM version 21.x](https://javadoc.io/static/org.graalvm.nativeimage/svm/21.2.0/com/oracle/svm/hosted/config/ReflectionRegistryAdapter.html#registerField-java.lang.Class-java.lang.String-boolean-)
 
 
-I am checking with the engineering team and if possible will propose a workaround to have this native image compilation works in latest GraalVM version 21.2.0.1 (or version 21.x in general).
+Please use GraalVM 20.3.2 to continue the rest of the exercise. It should work.
 
-To save time, please revert back to GraalVM 20.3.3. It should work.
 
  * _or another alternative is to use [PetClinic JPA from upstream Spring Native project](https://github.com/spring-projects-experimental/spring-native/tree/main/samples/petclinic-jpa)_
 

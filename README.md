@@ -1,5 +1,5 @@
 # GraalVM Hands-on Lab
-_August 2021_
+_February 2022_
 
 Table of Contents:
 

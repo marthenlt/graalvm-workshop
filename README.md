@@ -259,7 +259,7 @@ For this workshop we are only use either macOS or Linux. Windows has lesser feat
 
     **Native Image prerequisite**
 
-    Native Image requires ```glibc-devel, zlib-devel, and gcc``` libraries as seen [here](https://docs.oracle.com/en/graalvm/enterprise/19/guide/reference/native-image/native-image.html#prerequisites) to be installed on your MacOS or Linux machine. You can install those libraries using package manager available in your OS.
+    Native Image requires ```glibc-devel, zlib-devel, and gcc``` libraries as seen [here](https://docs.oracle.com/en/graalvm/enterprise/22/docs/reference-manual/native-image/#prerequisites) to be installed on your MacOS or Linux machine. You can install those libraries using package manager available in your OS.
 
     **Oracle Linux** using ```yum``` package manager
 

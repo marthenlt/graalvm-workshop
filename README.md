@@ -964,7 +964,7 @@ Iteration 20 finished in 172 milliseconds with checksum e6e0b70aee921601
 TOTAL time: 3466
 ```
 
-The result is 4686 miliseconds, and that'd be the throughput result before we optimise the `streams` binary executable application using PGO.
+The result is 3466 miliseconds, and that'd be the throughput result before we optimise the `streams` binary executable application using PGO.
 
 Next we will create a PGO file and create a new `streams` binary executable application.
 

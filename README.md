@@ -941,27 +941,27 @@ The above will create an array of 200 Person objects, with 100K iteration to cal
 The output is something like the following:
 
 ```
-Iteration 1 finished in 264 milliseconds with checksum e6e0b70aee921601
-Iteration 2 finished in 244 milliseconds with checksum e6e0b70aee921601
-Iteration 3 finished in 244 milliseconds with checksum e6e0b70aee921601
-Iteration 4 finished in 254 milliseconds with checksum e6e0b70aee921601
-Iteration 5 finished in 238 milliseconds with checksum e6e0b70aee921601
-Iteration 6 finished in 239 milliseconds with checksum e6e0b70aee921601
-Iteration 7 finished in 233 milliseconds with checksum e6e0b70aee921601
-Iteration 8 finished in 232 milliseconds with checksum e6e0b70aee921601
-Iteration 9 finished in 236 milliseconds with checksum e6e0b70aee921601
-Iteration 10 finished in 219 milliseconds with checksum e6e0b70aee921601
-Iteration 11 finished in 223 milliseconds with checksum e6e0b70aee921601
-Iteration 12 finished in 226 milliseconds with checksum e6e0b70aee921601
-Iteration 13 finished in 235 milliseconds with checksum e6e0b70aee921601
-Iteration 14 finished in 229 milliseconds with checksum e6e0b70aee921601
-Iteration 15 finished in 230 milliseconds with checksum e6e0b70aee921601
-Iteration 16 finished in 234 milliseconds with checksum e6e0b70aee921601
-Iteration 17 finished in 237 milliseconds with checksum e6e0b70aee921601
-Iteration 18 finished in 220 milliseconds with checksum e6e0b70aee921601
-Iteration 19 finished in 223 milliseconds with checksum e6e0b70aee921601
-Iteration 20 finished in 226 milliseconds with checksum e6e0b70aee921601
-TOTAL time: 4686
+Iteration 1 finished in 191 milliseconds with checksum e6e0b70aee921601
+Iteration 2 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 3 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 4 finished in 174 milliseconds with checksum e6e0b70aee921601
+Iteration 5 finished in 173 milliseconds with checksum e6e0b70aee921601
+Iteration 6 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 7 finished in 171 milliseconds with checksum e6e0b70aee921601
+Iteration 8 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 9 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 10 finished in 173 milliseconds with checksum e6e0b70aee921601
+Iteration 11 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 12 finished in 175 milliseconds with checksum e6e0b70aee921601
+Iteration 13 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 14 finished in 171 milliseconds with checksum e6e0b70aee921601
+Iteration 15 finished in 173 milliseconds with checksum e6e0b70aee921601
+Iteration 16 finished in 171 milliseconds with checksum e6e0b70aee921601
+Iteration 17 finished in 173 milliseconds with checksum e6e0b70aee921601
+Iteration 18 finished in 173 milliseconds with checksum e6e0b70aee921601
+Iteration 19 finished in 172 milliseconds with checksum e6e0b70aee921601
+Iteration 20 finished in 172 milliseconds with checksum e6e0b70aee921601
+TOTAL time: 3466
 ```
 
 The result is 4686 miliseconds, and that'd be the throughput result before we optimise the `streams` binary executable application using PGO.
@@ -1068,7 +1068,7 @@ Next we can then re-create the topten binary executable with our PGO `streams.ip
 
 ![user input](images/userinput.png)
 >```sh
-> native-image --no-fallback --pgo=streams.iprof Streams
+> native-image --pgo=streams.iprof Streams
 >```
 
 Then we execute the same benchmarking again..
@@ -1081,30 +1081,30 @@ Then we execute the same benchmarking again..
 The result is:
 
 ```
-Iteration 1 finished in 31 milliseconds with checksum e6e0b70aee921601
-Iteration 2 finished in 30 milliseconds with checksum e6e0b70aee921601
-Iteration 3 finished in 27 milliseconds with checksum e6e0b70aee921601
-Iteration 4 finished in 27 milliseconds with checksum e6e0b70aee921601
-Iteration 5 finished in 28 milliseconds with checksum e6e0b70aee921601
-Iteration 6 finished in 27 milliseconds with checksum e6e0b70aee921601
-Iteration 7 finished in 26 milliseconds with checksum e6e0b70aee921601
-Iteration 8 finished in 24 milliseconds with checksum e6e0b70aee921601
-Iteration 9 finished in 25 milliseconds with checksum e6e0b70aee921601
-Iteration 10 finished in 25 milliseconds with checksum e6e0b70aee921601
-Iteration 11 finished in 24 milliseconds with checksum e6e0b70aee921601
-Iteration 12 finished in 24 milliseconds with checksum e6e0b70aee921601
-Iteration 13 finished in 30 milliseconds with checksum e6e0b70aee921601
-Iteration 14 finished in 32 milliseconds with checksum e6e0b70aee921601
-Iteration 15 finished in 32 milliseconds with checksum e6e0b70aee921601
-Iteration 16 finished in 29 milliseconds with checksum e6e0b70aee921601
-Iteration 17 finished in 28 milliseconds with checksum e6e0b70aee921601
-Iteration 18 finished in 24 milliseconds with checksum e6e0b70aee921601
-Iteration 19 finished in 27 milliseconds with checksum e6e0b70aee921601
-Iteration 20 finished in 28 milliseconds with checksum e6e0b70aee921601
-TOTAL time: 548
+Iteration 1 finished in 169 milliseconds with checksum e6e0b70aee921601
+Iteration 2 finished in 152 milliseconds with checksum e6e0b70aee921601
+Iteration 3 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 4 finished in 150 milliseconds with checksum e6e0b70aee921601
+Iteration 5 finished in 150 milliseconds with checksum e6e0b70aee921601
+Iteration 6 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 7 finished in 148 milliseconds with checksum e6e0b70aee921601
+Iteration 8 finished in 148 milliseconds with checksum e6e0b70aee921601
+Iteration 9 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 10 finished in 148 milliseconds with checksum e6e0b70aee921601
+Iteration 11 finished in 151 milliseconds with checksum e6e0b70aee921601
+Iteration 12 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 13 finished in 148 milliseconds with checksum e6e0b70aee921601
+Iteration 14 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 15 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 16 finished in 148 milliseconds with checksum e6e0b70aee921601
+Iteration 17 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 18 finished in 148 milliseconds with checksum e6e0b70aee921601
+Iteration 19 finished in 149 milliseconds with checksum e6e0b70aee921601
+Iteration 20 finished in 149 milliseconds with checksum e6e0b70aee921601
+TOTAL time: 3001
 ```
 
-The new benchmark (as a result of PGO) shows a better throughput of 548 milliseconds compare to 4686 miliseconds which is showing more than 88% better throughput.
+The new benchmark (as a result of PGO) shows a better throughput of 3001 milliseconds compare to 3466 miliseconds which is showing more than 13.4% better throughput.
 
 
 ### Generating PGO file via `native-image --pgo-instrument`
@@ -1146,30 +1146,30 @@ And re-run our test again:
 You will see more or less this output result (could be slightly different from within your machine) :
 
 ```
-Iteration 1 finished in 31 milliseconds with checksum e6e0b70aee921601
-Iteration 2 finished in 29 milliseconds with checksum e6e0b70aee921601
+Iteration 1 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 2 finished in 26 milliseconds with checksum e6e0b70aee921601
 Iteration 3 finished in 27 milliseconds with checksum e6e0b70aee921601
-Iteration 4 finished in 26 milliseconds with checksum e6e0b70aee921601
-Iteration 5 finished in 28 milliseconds with checksum e6e0b70aee921601
-Iteration 6 finished in 25 milliseconds with checksum e6e0b70aee921601
-Iteration 7 finished in 25 milliseconds with checksum e6e0b70aee921601
+Iteration 4 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 5 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 6 finished in 29 milliseconds with checksum e6e0b70aee921601
+Iteration 7 finished in 27 milliseconds with checksum e6e0b70aee921601
 Iteration 8 finished in 26 milliseconds with checksum e6e0b70aee921601
-Iteration 9 finished in 26 milliseconds with checksum e6e0b70aee921601
-Iteration 10 finished in 25 milliseconds with checksum e6e0b70aee921601
-Iteration 11 finished in 25 milliseconds with checksum e6e0b70aee921601
-Iteration 12 finished in 33 milliseconds with checksum e6e0b70aee921601
-Iteration 13 finished in 34 milliseconds with checksum e6e0b70aee921601
-Iteration 14 finished in 30 milliseconds with checksum e6e0b70aee921601
-Iteration 15 finished in 29 milliseconds with checksum e6e0b70aee921601
-Iteration 16 finished in 29 milliseconds with checksum e6e0b70aee921601
-Iteration 17 finished in 25 milliseconds with checksum e6e0b70aee921601
-Iteration 18 finished in 25 milliseconds with checksum e6e0b70aee921601
-Iteration 19 finished in 26 milliseconds with checksum e6e0b70aee921601
-Iteration 20 finished in 28 milliseconds with checksum e6e0b70aee921601
-TOTAL time: 552
+Iteration 9 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 10 finished in 28 milliseconds with checksum e6e0b70aee921601
+Iteration 11 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 12 finished in 26 milliseconds with checksum e6e0b70aee921601
+Iteration 13 finished in 26 milliseconds with checksum e6e0b70aee921601
+Iteration 14 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 15 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 16 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 17 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 18 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 19 finished in 27 milliseconds with checksum e6e0b70aee921601
+Iteration 20 finished in 27 milliseconds with checksum e6e0b70aee921601
+TOTAL time: 539
 ```
 
-The latest benchmark shows even better throughput of 552 milliseconds compare to initial 4686 miliseconds which is showing around 88% better throughput.
+The latest benchmark shows even better throughput of 539 milliseconds compare to initial 3001 miliseconds which is showing around 82% better throughput, or almost 6X faster!
 
 By now you have learned how to optimize an AOT binary executable file using PGO.
 
